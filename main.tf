@@ -82,7 +82,7 @@ resource "aws_iam_role" "ec2" {
 resource "aws_iam_role_policy" "default" {
   name   = "${module.this.id}-eb-default"
   role   = aws_iam_role.ec2.id
-  policy = data.aws_iam_policy_document.extended.json
+  policy = data.aws_iam_policy_document.default.json
 }
 
 resource "aws_iam_role_policy_attachment" "web_tier" {
