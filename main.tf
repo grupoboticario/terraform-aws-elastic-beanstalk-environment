@@ -287,11 +287,6 @@ data "aws_iam_policy_document" "default" {
   }
 }
 
-data "aws_iam_policy_document" "extended" {
-  source_json   = data.aws_iam_policy_document.default.json
-  override_json = var.extended_ec2_policy_document
-}
-
 resource "aws_iam_instance_profile" "ec2" {
   name = "${module.this.id}-eb-ec2"
   role = aws_iam_role.ec2.name
